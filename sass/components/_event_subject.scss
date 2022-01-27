@@ -1,0 +1,15 @@
+@use "sass:map";
+@use '@ecl/theme-dev/theme';
+// Capitalize Event subject field rendering using css.
+
+.event-subject {
+  text-transform: capitalize;
+}
+.event-subject span:after {
+  content: "|";
+  margin: 0 10px;
+}
+.event-subject span:last-child:after {
+  content: '';
+  margin: 0 10px;
+}

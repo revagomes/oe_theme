@@ -6,6 +6,8 @@
  * @see ./core/themes/stable/templates/field/field.html.twig
  */
 #}
-{% for item in items %}
-  {{- item.content|render -}}{{ not loop.last ? ' | ' }}
-{% endfor %}
+<div class="event-subject">
+  {% for item in items %}
+    <span>{{- item.content -}}</span>
+  {% endfor %}
+</div>
