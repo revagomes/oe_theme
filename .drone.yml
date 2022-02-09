@@ -69,8 +69,6 @@ pipeline:
     commands:
       - composer update --prefer-lowest --ansi --no-progress
     when:
-      event:
-        exclude: tag
       matrix:
         COMPOSER_BOUNDARY: lowest
 
@@ -126,6 +124,9 @@ pipeline:
     when:
       event:
         include: tag
+      matrix:
+        COMPOSER_BOUNDARY: highest
+        PHP_VERSION: 7.4
 
   github-release:
     image: registry.fpfis.eu/drone-plugins/github-release
@@ -136,6 +137,7 @@ pipeline:
         include: tag
       matrix:
         COMPOSER_BOUNDARY: highest
+        PHP_VERSION: 7.4
 
 matrix:
   include:
