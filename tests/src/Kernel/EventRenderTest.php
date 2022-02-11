@@ -217,7 +217,7 @@ class EventRenderTest extends ContentRenderTestBase {
         ],
         [
           'icon' => 'livestreaming',
-          'text' => t('Live streaming available'),
+          'text' => 'Live streaming available',
         ],
       ],
     ]);
@@ -270,7 +270,7 @@ class EventRenderTest extends ContentRenderTestBase {
         ],
         [
           'icon' => 'livestreaming',
-          'text' => t('Live streaming available'),
+          'text' => 'Live streaming available',
         ],
       ],
     ]);
