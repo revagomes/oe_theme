@@ -124,6 +124,7 @@ pipeline:
     image: registry.fpfis.eu/fpfis/httpd-php:${PHP_VERSION}-dev
     commands:
       - ./vendor/bin/run release:create-archive --tag=${DRONE_TAG}
+      - cp oe_theme-${DRONE_TAG}.tar.gz oe_theme
     when:
       event:
         include: tag
@@ -134,7 +135,7 @@ pipeline:
   github-release:
     image: registry.fpfis.eu/drone-plugins/github-release
     secrets: [ github_token ]
-    files: oe_theme-${DRONE_TAG}.tar.gz
+    files: oe_theme
     when:
       event:
         include: tag
