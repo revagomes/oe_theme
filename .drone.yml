@@ -134,7 +134,7 @@ pipeline:
   github-release:
     image: registry.fpfis.eu/drone-plugins/github-release
     secrets: [ github_token ]
-    files: oe_theme-${DRONE_TAG}.tar.gz
+    files: oe_theme-${DRONE_TAG}.gz
     when:
       event:
         include: tag
