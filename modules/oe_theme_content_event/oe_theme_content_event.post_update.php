@@ -150,9 +150,11 @@ function oe_theme_content_event_post_update_30004(): void {
     'core.date_format.oe_event_programme_date_hour',
   ];
   foreach ($date_formats as $date_format_name) {
-    $config = $storage->read($date_format_name);
-    $config['_core']['default_config_hash'] = Crypt::hashBase64(serialize($config));
-    $date_format = DateFormat::create($config);
-    $date_format->save();
+    if (!DateFormat::load($date_format_name)) {
+      $config = $storage->read($date_format_name);
+      $config['_core']['default_config_hash'] = Crypt::hashBase64(serialize($config));
+      $date_format = DateFormat::create($config);
+      $date_format->save();
+    }
   }
 }
